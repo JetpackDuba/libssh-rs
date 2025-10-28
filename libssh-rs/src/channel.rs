@@ -156,7 +156,7 @@ impl Channel {
         }
     }
 
-    fn lock_session(&self) -> (MutexGuard<SessionHolder>, sys::ssh_channel) {
+    fn lock_session(&self) -> (MutexGuard<'_, SessionHolder>, sys::ssh_channel) {
         (self.sess.lock().unwrap(), self.chan_inner)
     }
 

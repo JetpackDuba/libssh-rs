@@ -43,7 +43,7 @@ impl Drop for Sftp {
 }
 
 impl Sftp {
-    fn lock_session(&self) -> (MutexGuard<SessionHolder>, sys::sftp_session) {
+    fn lock_session(&self) -> (MutexGuard<'_, SessionHolder>, sys::sftp_session) {
         (self.sess.lock().unwrap(), self.sftp_inner)
     }
 
@@ -283,7 +283,7 @@ impl Drop for SftpFile {
 }
 
 impl SftpFile {
-    fn lock_session(&self) -> (MutexGuard<SessionHolder>, sys::sftp_file) {
+    fn lock_session(&self) -> (MutexGuard<'_, SessionHolder>, sys::sftp_file) {
         (self.sess.lock().unwrap(), self.file_inner)
     }
 
@@ -627,7 +627,7 @@ impl Drop for SftpDir {
 }
 
 impl SftpDir {
-    fn lock_session(&self) -> (MutexGuard<SessionHolder>, sys::sftp_dir) {
+    fn lock_session(&self) -> (MutexGuard<'_, SessionHolder>, sys::sftp_dir) {
         (self.sess.lock().unwrap(), self.dir_inner)
     }
 

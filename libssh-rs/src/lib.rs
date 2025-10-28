@@ -390,7 +390,7 @@ impl Session {
         }
     }
 
-    fn lock_session(&self) -> MutexGuard<SessionHolder> {
+    fn lock_session(&self) -> MutexGuard<'_, SessionHolder> {
         self.sess.lock().unwrap()
     }
 
