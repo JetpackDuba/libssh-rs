@@ -4,3 +4,4 @@ typedef unsigned long size_t;
 #include <libssh/server.h>
 #include <libssh/sftp.h>
 #include <libssh/ssh2.h>
+#include <libssh/pki.h>

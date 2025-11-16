@@ -7,6 +7,7 @@ typedef unsigned long size_t;
 #include <libssh/server.h>
 #include <libssh/sftp.h>
 #include <libssh/ssh2.h>
+#include <libssh/pki.h>
 EOT
 
 touch vendored/include/libssh/libssh_version.h
@@ -31,6 +32,20 @@ bindgen \
   --allowlist-var 'SSH.*' \
   --verbose \
   -- \
-  -Ivendored/include 
+  -Ivendored/include \
+  -DHAVE_STRTOULL \
+  -DHAVE_COMPILER__FUNC__ \
+  -DHAVE_COMPILER__FUNCTION__ \
+  -DHAVE_LIBCRYPTO \
+  -DHAVE_OPENSSL_AES_H \
+  -DHAVE_OPENSSL_BLOWFISH_H \
+  -DHAVE_OPENSSL_DES_H \
+  -DHAVE_OPENSSL_ECC \
+  -DHAVE_OPENSSL_ECDH_H \
+  -DHAVE_OPENSSL_ECDSA_H \
+  -DHAVE_ECC \
+  -DHAVE_DSA \
+  -DHAVE_OPENSSL_EC_H \
+  -DHAVE_STDINT_H
 
 rm vendored/include/libssh/libssh_version.h
