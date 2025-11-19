@@ -3711,12 +3711,7 @@ unsafe extern "C" {
 pub type ssh_sntrup761_pubkey = [::std::os::raw::c_uchar; 1158usize];
 pub type ssh_sntrup761_privkey = [::std::os::raw::c_uchar; 1763usize];
 pub type ssh_sntrup761_ciphertext = [::std::os::raw::c_uchar; 1039usize];
-unsafe extern "C" {
-    pub fn ssh_client_sntrup761x25519_init(session: ssh_session) -> ::std::os::raw::c_int;
-}
-unsafe extern "C" {
-    pub fn ssh_client_sntrup761x25519_remove_callbacks(session: ssh_session);
-}
+
 #[repr(u32)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum ssh_key_exchange_e {
