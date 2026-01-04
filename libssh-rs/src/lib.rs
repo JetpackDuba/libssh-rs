@@ -24,10 +24,16 @@ use std::time::Duration;
 mod channel;
 mod error;
 mod sftp;
+mod pki;
+mod signing;
+mod buffer;
 
 pub use crate::channel::*;
+pub use crate::buffer::*;
 pub use crate::error::*;
+pub use crate::pki::*;
 pub use crate::sftp::*;
+pub use crate::signing::*;
 
 struct LibraryState {}
 impl LibraryState {

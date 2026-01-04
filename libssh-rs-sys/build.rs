@@ -5,7 +5,7 @@ fn main() {
         && pkg_config::Config::new()
             // ssh_userauth_publickey_auto_get_current_identity
             // is not yet in a released version of libssh
-            .atleast_version("0.9.7")
+            .atleast_version("0.11.00")
             .probe("libssh")
             .is_ok()
     {
@@ -179,6 +179,7 @@ fn main() {
         "auth.c",
         "base64.c",
         "bignum.c",
+        "bind.c",
         "bind_config.c",
         "buffer.c",
         "callbacks.c",
@@ -191,6 +192,7 @@ fn main() {
         "connector.c",
         "crypto_common.c",
         "curve25519.c",
+        "curve25519_crypto.c",
         "dh-gex.c",
         "dh.c",
         "dh_crypto.c",
@@ -206,8 +208,8 @@ fn main() {
         "external/ge25519.c",
         "external/poly1305.c",
         "external/sc25519.c",
+        "external/sntrup761.c",
         "getpass.c",
-        "getrandom_crypto.c",
         "gzip.c",
         "init.c",
         "kdf.c",
@@ -228,6 +230,7 @@ fn main() {
         "pcap.c",
         "pki.c",
         "pki_container_openssh.c",
+        "pki_context.c",
         "pki_crypto.c",
         // "pki_ed25519.c", gcrypt only
         "pki_ed25519_common.c",
@@ -240,6 +243,7 @@ fn main() {
         "sftp_common.c",
         "sftp_aio.c",
         "socket.c",
+        "sntrup761.c",
         "string.c",
         "threads.c",
         "threads/libcrypto.c",
@@ -247,6 +251,7 @@ fn main() {
         "token.c",
         "ttyopts.c",
         "wrapper.c",
+        "getrandom_crypto.c",
     ] {
         cfg.file(&format!("vendored/src/{}", f));
     }
